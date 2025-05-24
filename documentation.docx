@@ -1,0 +1,114 @@
+Windows Compliance Tool
+
+Introduction:
+This tool helps in evaluation as well as strengthening of a Windows-based system’s posture on security and compliance. The Windows Compliance and Security Tool is built with base Python, applying automation plus structured methodology to ensure holistic diagnostics of the system critical settings, such as firewall; application updates available; the presence of anti-virus; proper coverage of password policies.
+
+The tool’s development is aligned with existing IT governance frameworks, which largely have the main basis in usability, scalability, and compliance with internationally accepted standards such as ISO/IEC 27001 and ISO/IEC 20000-1. In this report, full descriptions of the objectives, functionalities, architecture of the tool, technical operation, conformity to ISO, and recommendations for future improvement are provided.
+
+Objective
+This is the core objectives that Windows Compliance and Security Tool focuses on.
+
+System security: Identify which vulnerabilities and misconfigurations might allow unauthorized access to systems along with malware.
+Promotion of Compliance: Checking system settings against the global standards on security for compliance.
+Simplify Monitoring: Aggregate view of key compliance metrics will make the cumbersome process of performing manual audit much easier.
+Facilitating Remediation: Actionable insights facilitating user-driven remediation of identified issues.
+Tool Features
+Firewall Status Monitoring
+This tool assesses the status of Windows Firewall on the different profiles in your computer (Domain, Private, Public). Firewalls are the first lines of defense in preventing unauthorized network access. Querying the system’s firewall profiles, this tool finds whether each profile is enabled or disabled and provides actionable insight to improve it.
+
+Check installed applications
+It provides a complete list of installed software; it lists all the user-installed as well as system-installed applications. It scans both 32-bit and 64-bit registries completely. This feature is really useful for:
+
+Monitoring for non-sanctioned or unused software.
+Supports software lifecycle management and compliance audits.
+Check antivirus presence
+The best practices in cybersecurity call for antivirus software in the malware detection and neutralization processes. It looks up the registry of antivirus programs installed, cross-checks against the database of known antivirus solutions, and marks it as a critical compliance-related problem if antivirus software is absent or one that cannot identify known solutions.
+
+Password Policy Review
+The critical major weakness is a weak password policy. Utility checks the registry to make sure if the system enforces its strong password policy, for example, of 8 characters or more in length. Systems that have weak password policies or undefined password policies are reported so that there may be best practices followed toward access control.
+
+Status update of application
+Many updates from software carry critical security patches. The tool can integrate with Windows Package Manager (winget) to scan the available updates for applications installed by users and highlight outdated software for timely updates about possible vulnerabilities.
+
+Report Creation
+All the results are summarized in a detailed compliance report, saved locally as a text file. A user-friendly summary of the status of security and compliance of the system is provided in an easy-to-navigate system, broken into sections.
+
+Technical Architecture
+Platform and Framework
+Programming Language: Python 3.13.1, chosen for its flexibility, readability, and robust library support.
+Operating System: Windows, leveraging PowerShell commands and registry queries for data retrieval.
+Execution Environment: The tool is executed in the command-line interface and does not require additional dependencies beyond Python and PowerShell.
+Workflow
+Data Collection:
+The tool gathers data from multiple system components, such as the Windows Registry, firewall profiles, and package management utilities.
+Firewall Status: Retrieved using PowerShell commands.
+Installed Applications: Queried from the Windows Registry.
+Antivirus: Cross-referenced against a predefined list of popular antivirus products.
+Password Policy: Extracted from the registry path governing Netlogon parameters.
+App Updates: Collected via winget commands.
+Processing:
+The tool processes raw data into human-readable formats. It applies logical conditions to flag non-compliant configurations, such as disabled firewalls or outdated applications.
+Output:
+A comprehensive report is generated, detailing the current state of the system’s security and compliance features.
+ISO Standards Adherence
+The Windows Compliance and Security Tool is aligned with several ISO standards to ensure that it meets modern compliance and security benchmarks.
+
+ISO/IEC 27001: Information Security Management Systems (ISMS)
+Relevant Features:
+Firewall Status Check: Ensures that network security configurations (firewalls) are appropriately configured to protect against unauthorized access.
+Antivirus Check: Identifies whether antivirus software is installed, ensuring the system is protected from malicious software.
+Password Policy Check: Ensures that a minimum password length is set to a secure level, aligning with security best practices.
+Relevance: This standard defines the requirements for establishing, implementing, operating, monitoring, reviewing, maintaining, and improving information security within the context of the organization. Your tool supports this standard by validating key security controls.
+ISO/IEC 27002: Code of Practice for Information Security Controls
+Relevant Features:
+Password Strength Enforcement: Ensures password policy is strong (e.g., minimum password length), which is a common control for securing systems and user access.
+Antivirus/Antimalware Controls: Verifies if antivirus software is installed, which is a key control for mitigating malware threats.
+Relevance: Provides guidelines for organizational information security standards and information security management practices, including the selection, implementation, and management of controls.
+ISO/IEC 20000-1: IT Service Management
+Relevant Features:
+App Update Check: The functionality that checks for available updates in user-installed apps ensures that the software is kept up to date, reducing the risk of vulnerabilities.
+Relevance: This standard focuses on IT service management and outlines how an organization should plan, implement, and operate IT services. Regular updates of applications are a part of maintaining service continuity and efficiency.
+ISO/IEC 12207: Software Life Cycle Processes
+Relevant Features:
+Installed Apps Check: Ensures that the system tracks all installed software, which is important for managing software lifecycle processes, including installation, maintenance, and updates.
+Relevance: This standard describes the processes involved in software development and maintenance, ensuring that software is appropriately managed throughout its lifecycle.
+ISO/IEC 29100: Privacy Framework
+Relevant Features:
+Antivirus Check: Helps in identifying if antivirus software is in place to protect privacy and secure personal data.
+Firewall Status Check: Also contributes to protecting sensitive data by ensuring network boundaries are properly controlled.
+Relevance: This standard provides a privacy framework to guide the protection of personally identifiable information (PII) and data privacy. Ensuring security through antivirus software and firewalls helps protect privacy.
+ISO 9001: Quality Management Systems (QMS)
+Relevant Features:
+System Monitoring & Reporting: The tool generates reports and ensures that security settings and applications are checked and managed. This aligns with quality management principles, which emphasize continuous improvement.
+Relevance: ISO 9001 focuses on meeting customer and regulatory requirements through continuous process improvement. Regular reporting and checking align with these principles, ensuring that systems are updated and secure.
+Advantages of the Tool
+Comprehensive Diagnostics: Covers multiple security domains, offering a holistic view of system health.
+Automation: Eliminates the need for manual system audits, saving time and reducing human error.
+Customizability: Can be extended to include additional compliance checks, such as vulnerability scans.
+Compliance-Driven: Ensures adherence to globally recognized standards, facilitating audits and certifications.
+Expected for Future Enhancements
+Enhanced Reporting: Introduce support for exporting reports in multiple formats, such as PDF and Excel.
+Real-Time Monitoring: Implement background services to provide real-time alerts for non-compliance.
+User Interface: Develop a GUI for non-technical users to interact with the tool.
+Advanced Security Features:
+Include CVE-based vulnerability checks.
+Add encryption and secure storage for report files.
+Multi-System Support: Extend compatibility to macOS and Linux systems for broader applicability.
+Conclusion
+The Windows Compliance and Security Tool is a powerful utility that addresses critical aspects of system security and compliance. Its adherence to international standards such as ISO/IEC 27001 and ISO/IEC 20000-1 underscores its relevance and credibility in professional IT environments.
+
+By automating essential checks and providing actionable insights, the tool not only enhances system security but also streamlines the compliance process. With future enhancements, it has the potential to become an indispensable tool for IT administrators, cybersecurity professionals, and organizations aiming to maintain robust information security practices.
+
+Appendices
+Appendix A: Sample Compliance Report
+
+Firewall Status: Enabled on all profiles.
+Installed Applications: 45 applications detected.
+Antivirus: McAfee installed and active.
+App Updates: Updates available for 3 applications (e.g., VLC Media Player, Notepad++).
+Password Policy: Minimum password length set to 8 characters.
+Appendix B: References
+
+ISO/IEC Documentation.
+Windows Package Manager (winget) Documentation.
+Python Standard Library Documentation.(subprocess)
